@@ -1,3 +1,5 @@
+/*----- Estilos generales y otros ---------*/ 
+
 :root {
     --rojo: #E50914;
     --fondo: #141414;
@@ -15,7 +17,7 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 92%;
     margin: auto;
 }
 
@@ -96,11 +98,118 @@ header nav a.active {
 }
 
 
+    /*----- Contenedor titulo y controles ---------*/
+    .container-titulo-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.container-titulo-controles h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.container-titulo-controles .indicadores button {
+    background: #fff;
+    height: 3px;
+    width: 10px;
+    cursor: pointer;
+    border: none;
+    margin-right: 2px;
+}
+
+.container-titulo-controles .indicadores button:hover,
+.container-titulo-controles .indicadores button.activo {
+    background: red;
+}
+
+
+    /*----- Contenedor principal y flechas ---------*/ 
+
+    .peliculas-recomendadas {
+        margin-bottom: 50px;
+    }
+
+    .peliculas-recomendadas .cointainer-principal {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .peliculas-recomendadas .cointainer-principal .flecha-izquierda,
+    .peliculas-recomendadas .cointainer-principal .flecha-derecha {
+        position: absolute;
+        border: none;
+        background: rgba(0, 0, 0, .3);
+        font-size: 40px;
+        height: 50%;
+        top: calc(50% - 25%);
+        line-height: 40px;
+        width: 50px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 500;
+        transition: .2s ease all;
+    }
+
+    .peliculas-recomendadas .cointainer-principal .flecha-izquierda:hover,
+    .peliculas-recomendadas .cointainer-principal .flecha-derecha:hover {
+        background: rgba(0, 0, 0, .9);
+    }
+
+    .peliculas-recomendadas .cointainer-principal .flecha-izquierda {
+        left: 0;
+    }
+
+    .peliculas-recomendadas .cointainer-principal .flecha-derecha {
+        right: 0;
+    }
+
+    
+        /*----- Carousel ---------*/
+
+    .peliculas-recomendadas .container-carousel {
+        width: 100%;
+        padding: 20px 0;
+        overflow: hidden; 
+        scroll-behavior: smooth;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel .pelicula {
+        min-width: 20%;
+        transition: .3s ease all;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel .pelicula.hover {
+        transform: scale(1.2);
+        transform-origin: center;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel .pelicula img {
+        width: 100%;
+        vertical-align: top;
+    }
+
+
+
             /*----- Media Queries ---------*/ 
+            
 @media screen and (max-width: 800px) {
+
+    .container {
+        width: 92%;
+    }
+
     header .logo {
         margin-bottom: 10px;
-        width: 30px;
+        width: 146px;
     }
 
     header .container {
@@ -110,9 +219,191 @@ header nav a.active {
 
     .pelicula_principal {
         font-size: 14px;
+    }  
+   
+    .pelicula_principal .descripcion {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .pelicula_principal .boton {
+        padding: 14px 17px;
+        font-size: 18px;
+    }
+
+    .pelicula_principal .boton i {
+        margin-right: 16px;
+    }
+
+    /*----- Ajustes en recomendaciones peliculas margin bottom ---------*/
+    .peliculas-recomendadas {
+        margin-bottom: 32px;
+    }
+
+     /*----- Ajustes en recomendaciones peliculas ---------*/ 
+     .container-titulo-controles h3 {
+        color: #fff;
+        font-size: 30px;
+    }
+
+         /*----- Ajustes para el responsive/Cambia a Grid ---------*/ 
+    .peliculas-recomendadas .container-carousel {
+        overflow: visible;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 17px;
+    }
+
+    .peliculas-recomendadas .indicadores,
+    .peliculas-recomendadas .flecha-izquierda,
+    .peliculas-recomendadas .flecha-derecha {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+
+    .container {
+        width: 91%;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .logo {
+        margin-bottom: 8px;
+        width: 120px;
+    }
+
+    .pelicula_principal {
+        min-height: 450px;
+    }
+
+    .pelicula_principal .titulo {
+        font-size: 34px;        
     }
 
     .pelicula_principal .descripcion {
-        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .pelicula_principal .boton {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    .pelicula_principal .boton i {
+        margin-right: 12px;
+    }
+
+     /*----- Ajustes en recomendaciones peliculas margin bottom ---------*/
+     .peliculas-recomendadas {
+        margin-bottom: 28px;
+    }
+
+    /*----- Ajustes en recomendaciones peliculas ---------*/ 
+    .container-titulo-controles h3 {
+        color: #fff;
+        font-size: 24px;
+    }
+
+    /*----- Ajustes en grid de peliculas ---------*/ 
+    .peliculas-recomendadas .container-carousel {
+        overflow: visible;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .peliculas-recomendadas .indicadores,
+    .peliculas-recomendadas .flecha-izquierda,
+    .peliculas-recomendadas .flecha-derecha {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .container {
+        width: 91%;
+    }
+
+    header {
+        padding: 12px 0;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .logo {
+        margin-bottom: 8px;
+        width: 98px;
+    }
+
+    .pelicula_principal {
+        min-height: 390px;
+        margin-top: 10px;
+    }
+
+    .pelicula_principal .titulo {
+        font-size: 26px;        
+    }
+
+    .pelicula_principal .descripcion {
+        font-size: 14px;
+    }
+
+    .pelicula_principal .boton {
+        padding: 9px 11px;
+        font-size: 15px;
+    }
+
+    .pelicula_principal .boton i {
+        margin-right: 10px;
+    }
+
+    /*----- Ajustes en recomendaciones peliculas margin bottom ---------*/
+    .peliculas-recomendadas {
+        margin-bottom: 16px;
+    }
+
+     /*----- Ajustes en recomendaciones peliculas ---------*/ 
+     .container-titulo-controles h3 {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    /*----- Ajustes en grid de peliculas ---------*/ 
+    .peliculas-recomendadas .container-carousel {
+        overflow: visible;
+    }
+
+    .peliculas-recomendadas .container-carousel .carousel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+
+    .peliculas-recomendadas .indicadores,
+    .peliculas-recomendadas .flecha-izquierda,
+    .peliculas-recomendadas .flecha-derecha {
+        display: none;
     }
 }
